@@ -33,6 +33,9 @@ class CommunityDetectionGraph:
         self.graph.remove_edge(i,j)
         self.num_edges_removed +=1
 
+    '''
+    Referenced https://en.wikipedia.org/wiki/Modularity_%28networks%29 for modularity.
+    '''
     def modularity(self):
         degrees = self.get_node_degrees()
         adj_mat = nx.adj_matrix(self.graph)
