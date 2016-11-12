@@ -1,0 +1,54 @@
+Output 1
+
+Erdos Renyi -- Exact
+No of Communities, Cumulative Number of Edges Removed, Modularity
+1, 0, 0.000000000
+2, 1, 0.000000000
+3, 2, 0.000000000
+4, 10, 0.000501128
+5, 19, 0.000502260
+
+Erdos Renyi -- Approximate
+No of Communities, Cumulative Number of Edges Removed, Modularity
+1, 0, 0.000000000
+2, 2, 0.000000000
+3, 5, -0.000000000
+4, 10, 0.000000000
+5, 13, 0.000501504
+
+Barabasi -- Exact
+No of Communities, Cumulative Number of Edges Removed, Modularity
+1, 0, 0.000000000
+2, 253, 0.005820249
+3, 311, 0.010394959
+4, 326, 0.013431440
+5, 342, 0.015009020
+
+Barabasi -- Approximate
+No of Communities, Cumulative Number of Edges Removed, Modularity
+1, 0, 0.000000000
+2, 107, 0.000000000
+3, 108, 0.000000000
+4, 135, -0.000000000
+5, 136, -0.000000000
+
+WattsStrogatz -- Exact
+No of Communities, Cumulative Number of Edges Removed, Modularity
+1, 0, -0.000000000
+2, 357, 0.499996948
+3, 368, 0.624862183
+4, 379, 0.749998265
+5, 390, 0.780794346
+
+WattsStrogatz -- Approximate
+No of Communities, Cumulative Number of Edges Removed, Modularity
+1, 0, -0.000000000
+2, 373, 0.483793051
+3, 381, 0.654861767
+4, 389, 0.734878603
+5, 401, 0.787058954
+
+Output 2
+Erdos Renyi -- (Exact, Approximate): (290.57 sec, 206.51 sec) 
+Barabasi -- (Exact, Approximate): (2130.14 sec, 525.38 sec)
+WattsStrogatz -- (Exact, Approximate): (2565.34 sec, 1352.39 sec)
