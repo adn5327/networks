@@ -47,8 +47,10 @@ class LinearThresholding():
     def runall(self):
         random_totals = self.onealgo(seed.random_seed)
         degree_totals = self.onealgo(seed.degree_seed)
-        # closeness_totals = self.onealg(seed.closeness_seed)
-        closeness_totals = random_totals + 200
+        closeness_totals = self.onealgo(seed.closeness_seed)
+        print(random_totals)
+        print(degree_totals)
+        print(closeness_totals)
         plt.plot(self.seed_sizes, random_totals, label='random')
         plt.plot(self.seed_sizes, degree_totals, label='degree centrality')
         plt.plot(self.seed_sizes, closeness_totals, label='closeness centrality')
@@ -68,5 +70,5 @@ class LinearThresholding():
 
 if __name__ == "__main__":
     thresholder = LinearThresholding()
-    random_totals = thresholder.onealgo(seed.degree_seed)
+    random_totals = thresholder.onealgo(seed.closeness_seed)
     print(random_totals)

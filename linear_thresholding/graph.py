@@ -14,9 +14,9 @@ def setup_graph(fname):
 
 def new_edge(adj_list, src, dest):
     if src not in adj_list:
-        adj_list[src] = set() 
+        adj_list[src] = set()
     if dest not in adj_list:
-        adj_list[dest] = set() 
+        adj_list[dest] = set()
     adj_list[src].add(dest)
     adj_list[dest].add(src)
 
