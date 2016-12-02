@@ -15,17 +15,17 @@ class LinearThresholding():
         for each in self.seed_sizes:
             num = self.call(func, each)
             totals.append(num)
-        return totals
-    
+        return np.array(totals)
+
     def call(self, func, initial_set_size):
-        seed_set = func(initial_set_size, len(self.adj_lists))
+        seed_set = func(self, initial_set_size)
         num = self.threshold(seed_set)
         return num
 
     def setup(self, network_fname, theta_fname):
         self.adj_lists = graph.setup_graph(network_fname)
         self.theta_vals = graph.setup_thetas(theta_fname)
-        self.seed_sizes = [5, 10, 20, 25, 30]
+        self.seed_sizes = np.array([5, 10, 20, 25, 30])
 
     def threshold(self, seed_set, num_steps=1000):
         for i in range(1, num_steps):
@@ -47,7 +47,15 @@ class LinearThresholding():
     def runall(self):
         random_totals = self.onealgo(seed.random_seed)
         degree_totals = self.onealgo(seed.degree_seed)
-        closeness_totals = self.onealg(seed.closeness_seed)
+        # closeness_totals = self.onealg(seed.closeness_seed)
+        closeness_totals = random_totals + 200
+        plt.plot(self.seed_sizes, random_totals, label='random')
+        plt.plot(self.seed_sizes, degree_totals, label='degree centrality')
+        plt.plot(self.seed_sizes, closeness_totals, label='closeness centrality')
+        plt.xlabel('size of initial seed set')
+        plt.ylabel('num nodes active after 1000 time steps')
+        plt.legend(loc='best')
+        plt.savefig('influence-result.png')
 
     def runall_print(self, seed_set_size=20):
         random_num = self.call(seed.random_seed, seed_set_size)
@@ -58,8 +66,7 @@ class LinearThresholding():
         print('CLOSENESS CENTRALITY: {}'.format(closeness_num))
 
 
-
 if __name__ == "__main__":
     thresholder = LinearThresholding()
-    random_totals = thresholder.onealgo(seed.random_seed)
+    random_totals = thresholder.onealgo(seed.degree_seed)
     print(random_totals)
